@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Dígito Verificador</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            color: #ecf0f1;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 14px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        p {
+            color: #333;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Calculadora de Dígito Verificador</h2>
+    <form>
+        <label for="cedulaInput">Ingresa los primeros 9 dígitos de la cédula:</label>
+        <input type="text" id="cedulaInput" required>
+        <button type="button" onclick="calcularDigito()">Calcular Dígito</button>
+        <p id="resultado"></p>
+    </form>
+
+    <script>
+        function calcularDigito() {
+            var cedulaInput = document.getElementById("cedulaInput").value;
+            var resultadoElement = document.getElementById("resultado");
+
+            // Validar que la cédula tiene 9 dígitos
+            if (cedulaInput.length !== 9 || !/^\d+$/.test(cedulaInput)) {
+                resultadoElement.innerHTML = "Cédula inválida";
+                return;
+            }
+
+            // Convertir a array de números
+            var digitos = cedulaInput.split("").map(Number);
+
+            // Calcular el décimo dígito
+            var suma = digitos.reduce(function (acc, digit, index) {
+                var peso = (index % 2 === 0) ? 2 : 1;
+                return acc + (digit * peso > 9 ? digit * peso - 9 : digit * peso);
+            }, 0);
+
+            var decimoDigito = (10 - (suma % 10)) % 10;
+
+            resultadoElement.innerHTML = "El último dígito de la cédula es: " + decimoDigito;
+        }
+    </script>
+</div>
+
+</body>
+</html>

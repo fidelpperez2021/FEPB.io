@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serie de Fibonacci con Ingreso de Datos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #fibonacci-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: calc(100% - 20px);
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #resultado {
+            font-size: 18px;
+            margin-top: 20px;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+    <div id="fibonacci-container">
+        <h2>Serie de Fibonacci</h2>
+        <label for="cantidad">Ingrese la cantidad de términos:</label>
+        <input type="number" id="cantidad" min="1" value="1">
+        <button onclick="generarFibonacci()">Generar Serie</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function generarFibonacci() {
+            // Obtener la cantidad ingresada por el usuario
+            const cantidad = parseInt(document.getElementById('cantidad').value);
+
+            // Validar que la cantidad sea un número positivo
+            if (isNaN(cantidad) || cantidad <= 0) {
+                alert('Por favor, ingrese un número válido y positivo.');
+                return;
+            }
+
+            // Inicializar los primeros dos términos
+            let fibo = [0, 1];
+
+            // Generar la serie de Fibonacci
+            for (let i = 2; i < cantidad; i++) {
+                fibo[i] = fibo[i - 1] + fibo[i - 2];
+            }
+
+            // Mostrar la serie en el elemento con id "resultado"
+            const resultadoElement = document.getElementById('resultado');
+            resultadoElement.innerHTML = `<strong>Serie de Fibonacci (${cantidad} términos):</strong><br>${fibo.join('<br>')}`;
+        }
+    </script>
+</body>
+</html>

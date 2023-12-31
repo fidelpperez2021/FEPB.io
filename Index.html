@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sistema de gestion operativa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            position: relative;
+        }
+
+        #header {
+            background-color: black;
+            padding: 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 32px;
+            color: #fff;
+            display: inline-block;
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 40px;
+            color: black;
+            display: inline-block;
+        }
+
+        #logo {
+            max-width: 200px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        #menu {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        #resultado {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .decoracion-inferior {
+            background-color: #3498db;
+            height: 20px;
+            width: 100%;
+            position: fixed;
+            bottom: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h2></h2>
+        <img id="logo" src="file:///C:\Users\Dell\Desktop\Html\FEPB/aede05c6-362f-4a55-95e4-a64008a0f855.jpg" alt="Logo">
+    </div>
+
+    <div id="menu">
+        <h4></h4>
+        <h3>Calculadora Multifuncional</h3>
+        <h5></h5>
+        <a href="file:///C:/Users/Dell/Desktop/Html/FEPB/operacionesmatematiocas.html">
+            <button>Operaciones Matemáticas</button>
+        </a>
+        <a href="file:///C:/Users/Dell/Desktop/Html/FEPB/seriefibonacci.html">
+            <button>Serie Fibonacci</button>
+        </a>
+        <a href="file:///C:/Users/Dell/Desktop/Html/FEPB/Digito%20verificador1.html">
+            <button>Dígito Verificador de Cédula</button>
+        </a>
+    </a>
+        
+    </div>
+
+    <div id="resultado"></div>
+
+    <div class="decoracion-inferior"></div>
+
+    <div id="footer">
+        <p>Software desarrollado por el Ing Fidel Ernesto Pérez Bedoya.</p>
+    </div>
+
+    <div class="decoracion-final"></div>
+
+    <script>
+        function operacionesMatematicas() {
+            const resultado = "Operaciones Matemáticas: Aún no implementadas";
+            mostrarResultado(resultado);
+        }
+
+        function areaFigurasGeometricas() {
+            const resultado = "Área de Figuras Geométricas: Aún no implementada";
+            mostrarResultado(resultado);
+        }
+
+        function serieFibonacci() {
+            const resultado = "Serie Fibonacci: Aún no implementada";
+            mostrarResultado(resultado);
+        }
+
+        function calcularDigitoVerificador() {
+            const resultado = "Dígito Verificador de Cédula: Aún no implementado";
+            mostrarResultado(resultado);
+        }
+
+        function mostrarResultado(resultado) {
+            const resultadoElement = document.getElementById('resultado');
+            resultadoElement.textContent = resultado;
+        }
+    </script>
+</body>
+</html>
